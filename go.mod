@@ -18,6 +18,7 @@ require (
 	github.com/go-ozzo/ozzo-validation/v4 v4.3.0
 	github.com/golang-jwt/jwt/v4 v4.5.0
 	github.com/labstack/echo/v5 v5.0.0-20220201181537-ed2888cfa198
+	github.com/lib/pq v1.10.7
 	github.com/mattn/go-sqlite3 v1.14.16
 	github.com/pocketbase/dbx v1.10.0
 	github.com/spf13/cast v1.5.0

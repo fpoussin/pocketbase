@@ -35,13 +35,17 @@ builds:
       - arm64
       - arm
     goarm:
-      - 7
+      - "7"
     ignore:
       - goos: windows
         goarch: arm
       - goos: darwin
         goarch: arm
 
+    tags:
+      - pq
+      - sqlite
+      
 release:
   draft: true
 
