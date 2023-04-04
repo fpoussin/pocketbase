@@ -25,8 +25,8 @@ func (dao *Dao) SyncRecordTableSchema(newCollection *models.Collection, oldColle
 		if oldCollection == nil {
 			cols := map[string]string{
 				schema.FieldNameId:      "TEXT PRIMARY KEY DEFAULT ('r'||lower(hex(randomblob(7)))) NOT NULL",
-				schema.FieldNameCreated: "TEXT DEFAULT (strftime('%Y-%m-%d %H:%M:%fZ')) NOT NULL",
-				schema.FieldNameUpdated: "TEXT DEFAULT (strftime('%Y-%m-%d %H:%M:%fZ')) NOT NULL",
+				schema.FieldNameCreated: "DATE DEFAULT CURRENT_DATE NOT NULL",
+				schema.FieldNameUpdated: "DATE DEFAULT CURRENT_DATE NOT NULL",
 			}
 
 			if newCollection.IsAuth() {

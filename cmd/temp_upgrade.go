@@ -390,8 +390,8 @@ func migrateExternalAuths(txDao *daos.Dao, userCollectionId string) error {
 			[[recordId]]     TEXT NOT NULL,
 			[[provider]]     TEXT NOT NULL,
 			[[providerId]]   TEXT NOT NULL,
-			[[created]]      TEXT DEFAULT "" NOT NULL,
-			[[updated]]      TEXT DEFAULT "" NOT NULL,
+			[[created]]      DATE DEFAULT CURRENT_DATE NOT NULL,
+			[[updated]]      DATE DEFAULT CURRENT_DATE NOT NULL,
 			---
 			FOREIGN KEY ([[collectionId]]) REFERENCES {{_collections}} ([[id]]) ON UPDATE CASCADE ON DELETE CASCADE
 		);

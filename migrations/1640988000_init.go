@@ -41,9 +41,9 @@ func init() {
 				[[email]]           TEXT UNIQUE NOT NULL,
 				[[tokenKey]]        TEXT UNIQUE NOT NULL,
 				[[passwordHash]]    TEXT NOT NULL,
-				[[lastResetSentAt]] TEXT DEFAULT '' NOT NULL,
-				[[created]]         TEXT DEFAULT (strftime('%Y-%m-%d %H:%M:%fZ')) NOT NULL,
-				[[updated]]         TEXT DEFAULT (strftime('%Y-%m-%d %H:%M:%fZ')) NOT NULL
+				[[lastResetSentAt]] DATE DEFAULT CURRENT_DATE NOT NULL,
+				[[created]]         DATE DEFAULT CURRENT_DATE NOT NULL,
+				[[updated]]         DATE DEFAULT CURRENT_DATE NOT NULL
 			);
 
 			CREATE TABLE {{_collections}} (
@@ -59,16 +59,16 @@ func init() {
 				[[updateRule]] TEXT DEFAULT NULL,
 				[[deleteRule]] TEXT DEFAULT NULL,
 				[[options]]    JSON DEFAULT '{}' NOT NULL,
-				[[created]]    TEXT DEFAULT (strftime('%Y-%m-%d %H:%M:%fZ')) NOT NULL,
-				[[updated]]    TEXT DEFAULT (strftime('%Y-%m-%d %H:%M:%fZ')) NOT NULL
+				[[created]]    DATE DEFAULT CURRENT_DATE NOT NULL,
+				[[updated]]    DATE DEFAULT CURRENT_DATE NOT NULL
 			);
 
 			CREATE TABLE {{_params}} (
 				[[id]]      TEXT PRIMARY KEY NOT NULL,
 				[[key]]     TEXT UNIQUE NOT NULL,
 				[[value]]   JSON DEFAULT NULL,
-				[[created]] TEXT DEFAULT '' NOT NULL,
-				[[updated]] TEXT DEFAULT '' NOT NULL
+				[[created]] DATE DEFAULT CURRENT_DATE NOT NULL,
+				[[updated]] DATE DEFAULT CURRENT_DATE NOT NULL,
 			);
 
 			CREATE TABLE {{_externalAuths}} (
@@ -77,8 +77,8 @@ func init() {
 				[[recordId]]     TEXT NOT NULL,
 				[[provider]]     TEXT NOT NULL,
 				[[providerId]]   TEXT NOT NULL,
-				[[created]]      TEXT DEFAULT (strftime('%Y-%m-%d %H:%M:%fZ')) NOT NULL,
-				[[updated]]      TEXT DEFAULT (strftime('%Y-%m-%d %H:%M:%fZ')) NOT NULL,
+				[[created]]      DATE DEFAULT CURRENT_DATE NOT NULL,
+				[[updated]]      DATE DEFAULT CURRENT_DATE NOT NULL,
 				---
 				FOREIGN KEY ([[collectionId]]) REFERENCES {{_collections}} ([[id]]) ON UPDATE CASCADE ON DELETE CASCADE
 			);
